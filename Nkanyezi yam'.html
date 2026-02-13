@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vali Vali</title>
+
+<style>
+
+/* ===== Body ===== */
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background: #ffc0cb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Card container ===== */
+.valentines_card {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    aspect-ratio: 13 / 16;
+    perspective: 2000px;
+    cursor: pointer;
+}
+
+/* ===== Card sides ===== */
+.front_card,
+.inside_card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #fff0f5;
+    box-shadow: 0 20px 40px rgba(255,20,147,0.3);
+    border: 4px dashed #ff69b4;
+    background-image: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+    padding: 30px;
+    box-sizing: border-box;
+    transition: transform 1s ease;
+    backface-visibility: hidden;
+    overflow-y: auto;
+}
+
+/* ===== FRONT PAGE CENTERING ===== */
+.front_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical center */
+    align-items: center;       /* horizontal center */
+    text-align: center;
+}
+
+/* ===== INSIDE PAGE ===== */
+.inside_card {
+    transform: rotateY(180deg);
+}
+
+/* ===== Flip Animation ===== */
+@media (hover: hover) {
+    .valentines_card:hover .front_card {
+        transform: rotateY(-180deg);
+    }
+
+    .valentines_card:hover .inside_card {
+        transform: rotateY(0deg);
+    }
+}
+
+/* Mobile tap flip */
+.valentines_card.flipped .front_card {
+    transform: rotateY(-180deg);
+}
+
+.valentines_card.flipped .inside_card {
+    transform: rotateY(0deg);
+}
+
+/* ===== Images ===== */
+
+/* Front image slightly bigger */
+.front_img {
+    width: 90%;
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 18px;
+    margin-bottom: 30px;
+}
+
+/* Inside top image */
+.inside_img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* Bottom inside images */
+.inside_bottom_imgs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.inside_bottom_imgs img {
+    width: 45%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+/* ===== Text ===== */
+.front_text {
+    color: #A60657;
+    font-size: 26px;
+}
+
+.inside_text {
+    text-align: center;
+    color: #A60657;
+    font-size: 20px;
+}
+
+.inside_text h4 {
+    margin-top: 20px;
+    line-height: 1.7;
+    font-weight: normal;
+}
+
+.inside_text h3 {
+    margin-top: 30px;
+}
+
+/* ===== Audio ===== */
+audio {
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* ===== Mobile Adjustments ===== */
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .front_img {
+        max-height: 320px;
+    }
+
+    .front_text {
+        font-size: 20px;
+    }
+
+    .inside_text {
+        font-size: 16px;
+    }
+
+    .inside_bottom_imgs img {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="valentines_card" onclick="this.classList.toggle('flipped')">
+
+    <!-- FRONT -->
+    <div class="front_card">
+        <img src="vday.jpg" class="front_img" alt="Valentine Card Front">
+        <div class="front_text">
+            <h3>What a great day to be yours...</h3>
+        </div>
+    </div>
+
+    <!-- INSIDE -->
+    <div class="inside_card">
+
+        <img src="inside.png" class="inside_img" alt="Valentine Card Inside">
+
+        <div class="inside_text">
+
+            <audio controls>
+                <source src="Uyandithandaa.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+
+            <h4>
+                Bhabha wam', you have introduced me to a love that feels like the first few rays of Sunshine on a cold winter morning... a love that feels like this song.
+                I love you with every fibre of my being.
+            </h4>
+
+            <div class="inside_bottom_imgs">
+                <img src="inside1.jpg" alt="Inside Image 1">
+                <img src="inside2.jpg" alt="Inside Image 2">
+            </div>
+
+            <h3>Happy Valentine's Day Nkanyezi Yam'!</h3>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
